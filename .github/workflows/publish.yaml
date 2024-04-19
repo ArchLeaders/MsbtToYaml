@@ -10,6 +10,9 @@ env:
 
 jobs:
   release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    permissions: write-all
     outputs:
       release: ${{ steps.release.outputs.upload_url }}
       version: ${{ steps.version.outputs.version-without-v }}

@@ -18,11 +18,16 @@ Simple CLI tool to convert MSBT files to/from YAML
   - [MacOS (x64)](#macos-x64)
   - [MacOS (Arm64)](#macos-arm64)
   - [Build From Source](#build-from-source)
+- [Help](#help)
 
 # Usage
 
 > [!NOTE]
-> *Only `.yaml` and `.yml` extensions are recognized as YAML files. Everything else is assumed to be an MSBT file.*
+> *File extensions are ignored. **Every** file is assumed to be a **YAML** file unless the `MsgStdBn` magic is found.*
+
+The input file can either be a **YAML** or **MSBT** file. The output file will always be the converted input file (regardless of the extension).
+
+The tool can take any number of inputs immediately followed by `-o` or `--output` to specify a custom output path for the input (see examples).
 
 ## Single Input/Output
 
@@ -37,7 +42,7 @@ MsbtToYaml "D:\Mals\Attachment.msbt"
 ```
 
 ```powershell
-MsbtToYaml "D:\Mals\Attachment.msbt" -o "D:\Output\Custom.yml"
+MsbtToYaml "D:\Mals\Attachment.yaml" -o "D:\Output\Custom.msbt"
 ```
 
 ## Multiple Inputs/Outputs
@@ -50,7 +55,7 @@ MsbtToYaml <input> [-o|--output OUTPUT] <input> [-o|--output OUTPUT] ...
 
 
 ```powershell
-MsbtToYaml "D:\Mals\Attachment.msbt" "D:\Mals\Npc.msbt"
+MsbtToYaml "D:\Mals\Attachment.yaml" "D:\Mals\Npc.msbt"
 ```
 
 ```powershell
@@ -99,3 +104,14 @@ MsbtToYaml "D:\Mals\Attachment.msbt" -o "D:\Output\Custom.yml" "D:\Mals\Npc.msbt
 git clone "https://github.com/ArchLeaders/MsbtToYaml"
 dotnet build MsbtToYaml
 ```
+
+# Help
+
+<a href="https://github.com/ArchLeaders/MsbtToYaml/issues">
+  <img src="https://img.shields.io/github/issues/ArchLeaders/MsbtToYaml?style=for-the-badge&logoColor=c71b42&color=c71b42&labelColor=2A2C33&logo=github&label=Issues" alt="ArchLeaders' Website"/>
+</a> &nbsp;
+<a href="https://discord.gg/cbA3AWwfJj">
+  <img src="https://img.shields.io/discord/825161394663456799?style=for-the-badge&logoColor=37C75E&color=37C75E&labelColor=2A2C33&logo=discord&label=discord" alt="ArchLeaders' Discord"/>
+</a>
+
+*If you need any help or found an issue, please create an [issue on GitHub](https://github.com/ArchLeaders/MsbtToYaml/issues) or contact me on [Discord](https://discord.gg/8Saj6tTkNB) @ [archleaders](https://discord.com/users/728823685015797770).*

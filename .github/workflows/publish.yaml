@@ -87,7 +87,7 @@ jobs:
         uses: TheDoctor0/zip-release@0.7.6
         with:
           type: zip
-          filename: ../../${{ matrix.config.runtime }}.zip
+          filename: ../${{ matrix.config.runtime }}.zip
           directory: ${{ matrix.config.runtime }}
           path: ./**
 

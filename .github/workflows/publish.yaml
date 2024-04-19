@@ -77,7 +77,7 @@ jobs:
           -o ${{ matrix.config.runtime }} \
           -r ${{ matrix.config.runtime }} \
           --sc false \
-          --version-suffix ${{ needs.release.outputs.release }} \
+          --version-suffix ${{ needs.release.outputs.version }} \
           -p:DebugType=none \
           -p:IncludeNativeLibrariesForSelfExtract=true \
           -p:PublishSingleFile=true \

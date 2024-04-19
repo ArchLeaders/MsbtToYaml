@@ -43,10 +43,10 @@ jobs:
         config:
           - name: Windows (x64)
             os: ubuntu-latest
-            runtime: windows-x64
+            runtime: win-x64
           - name: Windows (arm64)
             os: ubuntu-latest
-            runtime: windows-arm64
+            runtime: win-arm64
           - name: Linux (x64)
             os: ubuntu-latest
             runtime: linux-x64

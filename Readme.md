@@ -9,7 +9,7 @@ Simple CLI tool to convert MSBT files to/from YAML
   - [Single Input/Output](#single-inputoutput)
     - [Examples](#examples)
   - [Multiple Inputs/Outputs](#multiple-inputsoutputs)
-    - [Example](#example)
+    - [Examples](#examples-1)
 - [Install](#install)
   - [Windows (x64)](#windows-x64)
   - [Windows (Arm64)](#windows-arm64)
@@ -51,17 +51,16 @@ MsbtToYaml "D:\Mals\Attachment.yaml" -o "D:\Output\Custom.msbt"
 ```
 
 ```powershell
-MsbtToYaml --function-map "D:\FunctionMaps\TotK.yaml" "D:\Mals\Attachment.yaml" -o "D:\Output\Custom.msbt"
+MsbtToYaml -f "D:\FunctionMaps\TotK.yaml" "D:\Mals\Attachment.yaml" -o "D:\Output\Custom.msbt"
 ```
 
 ## Multiple Inputs/Outputs
 
 ```powershell
-MsbtToYaml <input> [-o|--output OUTPUT] <input> [-o|--output OUTPUT] ...
+MsbtToYaml [-f|--function-map FUNCTION_MAP] <input> [-o|--output OUTPUT] <input> [-o|--output OUTPUT] ...
 ```
 
-### Example
-
+### Examples
 
 ```powershell
 MsbtToYaml "D:\Mals\Attachment.yaml" "D:\Mals\Npc.msbt"
@@ -76,11 +75,11 @@ MsbtToYaml "D:\Mals\Attachment.msbt" -o "D:\Output\Custom.yml" "D:\Mals\Npc.msbt
 ```
 
 ```powershell
-MsbtToYaml --function-map "D:\FunctionMaps\TotK.yaml" "D:\Mals\Attachment.msbt" -o "D:\Output\Custom.yml" "D:\Mals\Npc.msbt" -o "D:\Output\Custom-Npc.yml" 
+MsbtToYaml -f "D:\FunctionMaps\TotK.yaml" "D:\Mals\Attachment.msbt" -o "D:\Output\Custom.yml" "D:\Mals\Npc.msbt" -o "D:\Output\Custom-Npc.yml" 
 ```
 
 ```powershell
-MsbtToYaml --function-map "D:\FunctionMaps\TotK.yaml" "D:\Mals\Attachment.msbt" -o "D:\Output\Custom.yml" --function-map default "D:\Mals\Npc.msbt" -o "D:\Output\Custom-Npc.yml" 
+MsbtToYaml -f "D:\FunctionMaps\TotK.yaml" "D:\Mals\Attachment.msbt" -o "D:\Output\Custom.yml" -f default "D:\Mals\Npc.msbt" -o "D:\Output\Custom-Npc.yml" 
 ```
 
 # Install

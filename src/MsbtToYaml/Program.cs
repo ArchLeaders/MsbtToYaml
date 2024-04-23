@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.HighPerformance.Buffers;
 using MessageStudio.Formats.BinaryText;
+using MessageStudio.Formats.BinaryText.Components;
 using MsbtToYaml;
 using Revrs.Extensions;
 using System.Reflection;
@@ -16,7 +17,7 @@ Console.WriteLine($"""
 if (args.Length == 0 || args[0].ToLower() is "h" or "help" or "-h" or "--help") {
     Console.WriteLine("""
           Usage:
-        <input> [-o|--output OUTPUT] ...
+        [-f|--function-map FUNCTION_MAP] <input> [-o|--output OUTPUT] ...
 
           Documentation:
         github.com/ArchLeaders/MsbtToYaml
@@ -25,6 +26,17 @@ if (args.Length == 0 || args[0].ToLower() is "h" or "help" or "-h" or "--help") 
 
 for (int i = 0; i < args.Length; i++) {
     string input = args[i];
+
+    if (input.ToLower() is "-f" or "--function-map") {
+        if (++i < args.Length) {
+            LoadFunctionMap(args[i]);
+            continue;
+        }
+
+        throw new ArgumentException("""
+            Invalid function map (-f) flag. Please specify a function map (yaml) file.
+            """);
+    }
 
     using FileStream fs = File.OpenRead(input);
     int size = Convert.ToInt32(fs.Length);
@@ -53,4 +65,40 @@ for (int i = 0; i < args.Length; i++) {
         using FileStream outputFileStream = File.Create(output);
         msbt.WriteBinary(outputFileStream);
     }
+}
+
+static void LoadFunctionMap(string functionMap)
+{
+    if (functionMap.EndsWith(".mfm")) {
+        throw new ArgumentException($"""
+            Invalid function map: '{functionMap}'. MFM files are not supported.
+            Use MfmToYaml (github.com/ArchLeaders/MfmToYaml) to convert MFM files to YAML.
+            """, nameof(functionMap));
+    }
+
+    if (File.Exists(functionMap)) {
+        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.WriteLine($"""
+            Loading Function Map '{Path.GetFileNameWithoutExtension(functionMap)}'
+            """);
+        Console.ResetColor();
+
+        FunctionMap.Current = FunctionMap.FromFile(functionMap);
+        return;
+    }
+
+    if (functionMap.ToLower() is "null" or "none" or "default" or "~") {
+        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.WriteLine($"""
+            Resetting Function Map
+            """);
+        Console.ResetColor();
+
+        FunctionMap.Current = FunctionMap.Default;
+        return;
+    }
+
+    throw new ArgumentException($"""
+        Invalid function map: '{functionMap}'. Expected a YAML file path or 'None'.
+        """, nameof(functionMap));
 }

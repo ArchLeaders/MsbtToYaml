@@ -29,10 +29,15 @@ The input file can either be a **YAML** or **MSBT** file. The output file will a
 
 The tool can take any number of inputs immediately followed by `-o` or `--output` to specify a custom output path for the input (see examples).
 
+Use `-f` or `--function-map` to load a function map file. This function map file will be used for every following conversion until the flag is used again. Setting the function map to `null`, `none`, `default` or `~` will reset the function map file.
+
+> [!NOTE]
+> [Aeon's](https://gitlab.com/AeonSake) `mfm` format is not supported, however you can use [MfmToYaml](https://github.com/ArchLeaders/MfmToYaml) to convert `mfm` files to YAML.
+
 ## Single Input/Output
 
 ```powershell
-MsbtToYaml <input> [-o|--output OUTPUT]
+MsbtToYaml [-f|--function-map FUNCTION_MAP] <input> [-o|--output OUTPUT]
 ```
 
 ### Examples
@@ -43,6 +48,10 @@ MsbtToYaml "D:\Mals\Attachment.msbt"
 
 ```powershell
 MsbtToYaml "D:\Mals\Attachment.yaml" -o "D:\Output\Custom.msbt"
+```
+
+```powershell
+MsbtToYaml --function-map "D:\FunctionMaps\TotK.yaml" "D:\Mals\Attachment.yaml" -o "D:\Output\Custom.msbt"
 ```
 
 ## Multiple Inputs/Outputs
@@ -64,6 +73,14 @@ MsbtToYaml "D:\Mals\Attachment.msbt" -o "D:\Output\Custom.yml" "D:\Mals\Npc.msbt
 
 ```powershell
 MsbtToYaml "D:\Mals\Attachment.msbt" -o "D:\Output\Custom.yml" "D:\Mals\Npc.msbt" -o "D:\Output\Custom-Npc.yml" 
+```
+
+```powershell
+MsbtToYaml --function-map "D:\FunctionMaps\TotK.yaml" "D:\Mals\Attachment.msbt" -o "D:\Output\Custom.yml" "D:\Mals\Npc.msbt" -o "D:\Output\Custom-Npc.yml" 
+```
+
+```powershell
+MsbtToYaml --function-map "D:\FunctionMaps\TotK.yaml" "D:\Mals\Attachment.msbt" -o "D:\Output\Custom.yml" --function-map default "D:\Mals\Npc.msbt" -o "D:\Output\Custom-Npc.yml" 
 ```
 
 # Install

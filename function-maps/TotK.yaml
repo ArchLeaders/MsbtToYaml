@@ -1,0 +1,230 @@
+# Courtesy of dt-12345 (https://github.com/dt-12345)
+
+Color: !u16
+  0: RedHint
+  1: BlueGreen
+  2: LightGray
+  3: RedTips
+  4: PaleWhite
+  5: HotPink
+  65535: ResetColor
+Icon: !u8
+  0: LStickUp
+  1: LStickDown
+  2: LStickLeft
+  3: LStickRight
+  4: RStickUpDown
+  5: RStickRightLeft
+  6: DPadUp
+  7: DPadDown
+  8: DPadLeft
+  9: DPadRight
+  10: AButton0
+  11: AButton1
+  12: JumpButton0
+  13: YButton
+  14: ZLTrigger0
+  15: ZLTrigger1
+  16: SprintButton0
+  17: SprintButton1
+  18: SprintButton2
+  19: SprintButton3
+  20: SprintButton4
+  21: RBumper0
+  22: LBumper
+  23: PlusButton
+  24: MinusButton
+  25: RightArrow
+  26: LeftArrow
+  27: UpArrow
+  28: DownArrow
+  29: UpRightArrow
+  30: UpLeftArrow
+  31: DownLeftArrow
+  32: DownRightArrow
+  33: LStick
+  34: RStick
+  35: LStickLeftRight
+  36: NintendoSwitch
+  37: JumpButton1
+  38: XButton2
+  39: BButton
+  40: XButton1
+  41: PristineWeaponSparkle
+  42: RBumper1
+  43: DPadUpDown
+AnimType: !u8
+  0: Normal
+  1: Pleasure
+  2: Anger
+  3: Sorrow
+  4: Surprise
+  5: Thinking
+  6: Serious
+  7: NormalSound
+  8: PleasureSound
+  9: AngerSound
+  10: SorrowSound
+  11: SurpriseSound
+  12: ThinkingSound
+  13: SeriousSound
+---
+[0, 0]: !Ruby
+  - !u16 CharSpan
+  - !string Value
+[0, 1]: !Font
+  - !s16 FontID
+[0, 2]: !Size
+  - !u16 Value
+[0, 3]: !Color
+  - !Color Id
+[0, 4]: !PageBreak []
+[0, 128]: !Alpha
+  - !u16 Value
+[0, 129]: !PictFont
+  - !s16 FontID
+[0, 130]: !Skip
+  - !u16 Size
+[0, 131]: !FitWidth
+  - !u16 CharSpan
+  - !u16 Width
+[0, 132]: !Unk0x130 []
+[1, 0]: !Delay
+  - !u16 Frames
+[1, 3]: !PlaySound
+  - !u16 Id
+[1, 4]: !Icon
+  - !Icon Id
+[2, 0]: !String0xa10dfba9 []
+[2, 1]: !String
+  - !string Flag
+  - !s16 Index
+[2, 2]: !Int
+  - !string Flag
+  - !s16 Index
+  - !bool CheckChangeRequest
+  - !u8 Padding
+[2, 3]: !CurrentHorseName []
+[2, 4]: !SelectedHorseName []
+[2, 7]: !CookingAdjective []
+[2, 8]: !CookingEffectCaption []
+[2, 9]: !Float
+  - !string Flag
+  - !s16 Index
+  - !bool CheckChangeRequest
+  - !u8 Padding
+[2, 10]: !DungeonName []
+[2, 11]: !ActorName11
+  - !string Flag
+  - !s16 Index
+[2, 12]: !ActorName12
+  - !string Flag
+  - !s16 Index
+[2, 14]: !Int14
+  - !string Flag
+  - !s16 Index
+  - !bool CheckChangeRequest
+  - !u8 Padding
+[2, 15]: !Int15
+  - !string Flag
+  - !s16 Index
+  - !bool CheckChangeRequest
+  - !u8 Padding
+[2, 16]: !IntFormat_lld
+  - !string Ref
+  - !s16 Index
+  - !bool CheckChangeRequest
+  - !bool UseFormat_d
+[2, 18]: !Number18
+  - !string Ref
+[2, 19]: !IntFormat_02d
+  - !string Flag
+  - !s16 Index
+  - !bool CheckChangeRequest
+  - !u8 Padding
+[2, 20]: !IntFormat_04d
+  - !string Flag
+  - !s16 Index
+  - !bool CheckChangeRequest
+  - !u8 Padding
+[2, 21]: !IntCheckChangeRequest21
+  - !string Flag
+  - !s16 Index
+[2, 22]: !IntCheckChangeRequest22
+  - !string Flag
+  - !s16 Index
+[2, 23]: !Bool
+  - !string Ref
+  - !s16 Index
+  - !bool CheckChangeRequest
+  - !bool NegateValue
+[2, 24]: !AttachmentAdjective []
+[2, 25]: !EquipmentBaseName []
+[2, 26]: !EssenceAdjective []
+[2, 27]: !EssenceBaseName []
+[2, 28]: !WeaponName []
+[2, 29]: !PlayerName []
+[2, 30]: !RockRoastName []
+[2, 31]: !String31
+  - !string Flag
+  - !s16 Index
+[2, 32]: !String32
+  - !string Flag
+  - !s16 Index
+[2, 33]: !String33
+  - !string Flag
+  - !s16 Index
+[2, 34]: !IntFormat_2d
+  - !string Flag
+  - !s16 Index
+  - !bool CheckChangeRequest
+  - !u8 Padding
+[2, 35]: !YonaDynamicName []
+[2, 36]: !String36
+  - !string Flag
+  - !s16 Index
+[2, 37]: !RecipeName []
+[3, 0]: !Anim
+  - !AnimType Type
+  - !u8 Arg
+[3, 1]: !SetItalicFont []
+[4, 0]: !Voice
+  - !string ResName
+[5, 0]: !Delay8frames []
+[5, 1]: !Delay15frames []
+[5, 2]: !Delay30frames []
+[7, 0]: !ExtendVerticalSpace []
+[15, 0]: !ResetFontStyle []
+[201, 0]: !WordInfo
+  - !u8 Gender
+  - !u8 DefArticle
+  - !u8 IndefArticle
+  - !u8 IsPlural
+[201, 1]: !DefArticle []
+[201, 2]: !IndefArticle []
+[201, 3]: !UppercaseNextWord []
+[201, 4]: !LowercaseNextWord []
+[201, 5]: !Gender
+  - !string M
+  - !string F
+  - !string N
+[201, 6]: !PluralCase
+  - !string M
+  - !string F
+  - !string N
+[201, 8]: !Gender8
+  - !string Arg1
+  - !string Arg2
+[201, 10]: !NounCase
+  - !string NomSing
+  - !string GenSing
+  - !string DatSing
+  - !string AccSing
+  - !string InsSing
+  - !string PrepSing
+  - !string NomPlur
+  - !string GenPlur
+  - !string DatPlur
+  - !string AccPlur
+  - !string InsPlur
+  - !string PrepPlur

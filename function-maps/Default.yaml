@@ -1,0 +1,9 @@
+{}---
+[0, 0]: !Ruby 
+- !u16 CharSpan
+- !str Value
+[0, 2]: !Size 
+- !u16 Value
+[0, 3]: !Color 
+- !s16 Id
+[0, 4]: !PageBreak []
